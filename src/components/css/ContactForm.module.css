@@ -54,3 +54,6 @@
   display: block;
   margin: 10px auto;
 }
+.form__input::placeholder {
+  color: #f39c21;
+}

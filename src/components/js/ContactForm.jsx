@@ -14,7 +14,6 @@ class ContactsForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     this.props.onAddContact(this.state);
     this.reset();
   };
@@ -35,6 +34,7 @@ class ContactsForm extends Component {
             className={stl.form__input}
             type="text"
             name="name"
+            placeholder='* fields are required'
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             value={name}
@@ -45,15 +45,17 @@ class ContactsForm extends Component {
           Number
           <input
             className={stl.form__input}
-            type="text"
+            type="tel"
             name="number"
+            placeholder='* fields are required'
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             value={number}
             onChange={this.handleChangeInput}
           />
         </label>
-        <button className={stl.form__btn} type="submit" >
+        <button className={stl.form__btn} type="submit" disabled={ name === ''||
+      number === ''}>
           Add contact
         </button>
       </form>

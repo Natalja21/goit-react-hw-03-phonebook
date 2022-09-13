@@ -1,5 +1,6 @@
-import stl from 'components/css/ContactList.module.css'
-const ContactsList = ({ contacts, onDeleteContact, onToggleCompleted }) => {
+import stl from 'components/css/ContactList.module.css';
+import PropTypes from 'prop-types';
+const ContactsList = ({ contacts, onDeleteContact, }) => {
   return (
     <ul className={stl.contactsList}>
       {contacts.map(({ id, name, number }) => (
@@ -15,5 +16,9 @@ const ContactsList = ({ contacts, onDeleteContact, onToggleCompleted }) => {
     
   );
 };
-
+ContactsList.prototype = {
+  contacts: PropTypes.arrayOf(PropTypes.string),
+  onDeleteContact: PropTypes.func.isRequired,
+  
+}
 export default ContactsList;

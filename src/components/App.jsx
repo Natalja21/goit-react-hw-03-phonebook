@@ -24,8 +24,9 @@ class App extends Component {
 
     if (initialContacts.some(contact => contact.name === name)) {
       return Notify.warning(`${contact.name} is already in the Phonebook`);
-    } else if (!name || !number) {
-      return Notify.warning(`Please, enter contact details`);
+    }
+    else if (initialContacts.some(contact => contact.number === number)) {
+      return Notify.warning(`${contact.number} is already in the Phonebook`);
     }
 
     this.setState(prevState => ({
