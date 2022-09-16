@@ -3,8 +3,6 @@
   height: auto;
   margin: auto;
   padding: 20px;
- 
- 
 }
 .contactsList__item {
   width: 100%;
@@ -19,7 +17,7 @@
   justify-content: space-between;
   margin-bottom: 20px;
   border-radius: 4px;
-    box-shadow: 0 0 10px rgba(255, 72, 0, 0.474);
+  box-shadow: 0 0 10px rgba(255, 72, 0, 0.474);
 }
 .contactsList__text {
   padding: 10px;
@@ -27,6 +25,7 @@
 }
 .contactsList__btn {
   border-radius: 4px;
+  width: 80px;
   cursor: pointer;
   padding: 2px 10px;
   display: block;

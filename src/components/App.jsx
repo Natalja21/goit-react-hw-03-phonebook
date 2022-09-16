@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ContactsForm from './js/ContactForm';
 import ContactsList from './js/ContactList';
 import SearchFilter from './js/ContactFilter';
+import BtnDeleteAll from './js/BtnDeleteAll';
 import json from './js/contacts.json';
 import stl from './css/App.module.css';
 import shortid from 'shortid';
@@ -71,7 +72,7 @@ class App extends Component {
           contacts={visibleTasks}
           onDeleteContact={this.deleteContact}
         />
-        <button className={stl.btn} type='button' onClick={this.deleteAllContacts} >Delete All</button>
+        <BtnDeleteAll onDeleteAll={this.deleteAllContacts} />
       </div>
     );
   }

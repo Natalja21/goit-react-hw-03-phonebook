@@ -7,8 +7,7 @@ const SearchFilter = ({ value, onChangeFilter }) => {
       Find contacts by Name
       <input
         className={stl.input}
-              type="text"
-             
+        type="text"
         value={value}
         onChange={e => onChangeFilter(e.currentTarget.value)}
       />
