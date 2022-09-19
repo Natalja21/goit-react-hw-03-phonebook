@@ -7,6 +7,7 @@ import json from '../data/contacts.json';
 import stl from './App.module.css';
 import shortid from 'shortid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+const STORAGE_KEY = 'contacts';
 
 class App extends Component {
   state = {
@@ -50,6 +51,18 @@ class App extends Component {
   };
   deleteAllContacts = () => {
     this.setState({contacts: []})
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.state.contacts))
+    }
+  }
+  componentDidMount() {
+    const contacts = localStorage.getItem(STORAGE_KEY);
+    const parseContacts = JSON.parse(contacts)
+    if (parseContacts) {
+      this.setState({contacts: parseContacts})
+    }
   }
 
   render() {
