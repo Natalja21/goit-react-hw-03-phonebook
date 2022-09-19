@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ContactsForm from './js/ContactForm';
-import ContactsList from './js/ContactList';
-import SearchFilter from './js/ContactFilter';
-import BtnDeleteAll from './js/BtnDeleteAll';
-import json from './js/contacts.json';
-import stl from './css/App.module.css';
+import ContactsForm from '../ContactsForm/ContactForm';
+import ContactsList from '../ContactsList/ContactList';
+import SearchFilter from '../SearchFilter/SearchFilter';
+import BtnDeleteAll from '../BtnDeleteAll/BtnDeleteAll';
+import json from '../data/contacts.json';
+import stl from './App.module.css';
 import shortid from 'shortid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -15,7 +15,6 @@ class App extends Component {
   };
 
   addContact = ({ name, number }) => {
-    console.log(name, number);
     const contact = {
       id: shortid.generate(),
       name,
@@ -23,7 +22,7 @@ class App extends Component {
     };
     const initialContacts = this.state.contacts;
 
-    if (initialContacts.some(contact => contact.name === name)) {
+    if (initialContacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
       return Notify.warning(`${contact.name} is already in the Phonebook`);
     }
     else if (initialContacts.some(contact => contact.number === number)) {

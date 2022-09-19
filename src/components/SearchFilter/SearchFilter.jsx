@@ -1,5 +1,5 @@
 import React from 'react';
-import stl from 'components/css/ContactFilter.module.css';
+import stl from './SearchFilter.module.css';
 import PropTypes from 'prop-types';
 const SearchFilter = ({ value, onChangeFilter }) => {
   return (

@@ -1,4 +1,4 @@
-import stl from 'components/css/BtnDeleteAll.module.css';
+import stl from './BtnDeleteAll.module.css';
 import PropTypes from 'prop-types';
 const BtnDeleteAll = ({ onDeleteAll }) => {
   return (
