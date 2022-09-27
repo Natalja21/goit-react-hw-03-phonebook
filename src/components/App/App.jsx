@@ -23,10 +23,10 @@ class App extends Component {
     };
     const initialContacts = this.state.contacts;
 
-    if (initialContacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
+    if (initialContacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
       return Notify.warning(`${contact.name} is already in the Phonebook`);
     }
-    else if (initialContacts.some(contact => contact.number === number)) {
+    else if (initialContacts.find(contact => contact.number === number)) {
       return Notify.warning(`${contact.number} is already in the Phonebook`);
     }
 
